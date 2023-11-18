@@ -5,7 +5,6 @@
 }
 
 .container {
-    background-color: #bad;
     display: grid;
     grid-template-areas: 'navbar' 'search' 'gallery' 'footer';
     grid-template-columns: 1fr;
@@ -15,24 +14,77 @@
 }
 
 @media (min-width: 576px) {
-    .container {grid-template-areas: 'navbar search' 'navbar gallery' 'footer gallery';
-    grid-template-columns: 1fr 4fr;}
+    .container {
+    grid-template-areas: 'navbar search' 'navbar gallery' 'navbar gallery' 'footer gallery';
+    grid-template-columns: 1fr 4fr;
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow: hidden;
+}
+
+@media (min-width: 576px) {
+    main {
+        overflow: visible;
+    }
 }
 
 .nav {
-    background-color: blue;
+    background-color: rgb(56, 56, 243);
     grid-area: navbar;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+@media (min-width: 576px) {
+    .nav {
+        justify-content: flex-start;
+        padding-top: 10px;
+    }
+}
+
+.nav-wrapper {
+    display: flex;
+    flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    color: white;
+    height: 100%;
+    width: 100%;
 }
 
-.nav p {
-    padding-right: 65%;
+@media (min-width: 576px) {
+    .nav-wrapper {
+        align-items: start;
+        max-height: 10%;
+    }
+
+    .hamburger {
+        color: rgb(56, 56, 243);
+    }
 }
 
+.nav-texto {
+    height: 0;
+}
+
+@media (min-width: 576px) {
+    .nav-texto {
+        height: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
 .search {
-    background-color: red;
+    background-color: rgb(201, 201, 201);
     grid-area: search;
     display: flex;
     flex-direction: column;
@@ -41,7 +93,7 @@
 }
 
 .search div {
-    background-color: aqua;
+    background-color: white;
     width: 80%;
     display: flex;
     flex-direction: row;
@@ -50,17 +102,94 @@
 }
 
 .gallery {
-    background-color: lime;
+    background-color: white;
     grid-area: gallery;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 80%;
+    padding: 5%;
+    gap: 2%;
+    justify-content: center;
+    overflow-y: scroll;
+    min-height: 80%;
 }
 
 @media (min-width: 576px) {
-    .gallery {grid-template-columns: repeat(4, 1fr);}
+    .gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px outset gray;
+    border-radius: 1%;
+    height: 100%;
+    padding: 5px;
+}
+
+.card img {
+    height: 80%;
+    width: 80%;
+}
+
+.card a {
+    text-decoration: none;
+    color: white;
+    background-color: blue;
+    padding: 8px;
+    border-radius: 10%;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 5px;
+    margin: 10px;
+    margin-top: 10%;
+}
+  
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+}
+  
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+  
+.pagination a:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+  
+.pagination a:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .footer {
-    background-color: aqua;
+    background-color: blue;
     grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 10px;
 }
+
+@media (min-width: 576px) {
+    .footer {
+        justify-content: end;
+        padding: 10px;
+        text-align: center;
+    }
+}
+
